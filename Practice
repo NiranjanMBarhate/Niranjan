@@ -153,4 +153,106 @@ Date:   Wed Mar 5 09:37:00 2025 +0530
 root@dbda8-VMware-Virtual-Platform:/Niranjan# ls
 data.txt  README.md
 root@dbda8-VMware-Virtual-Platform:/Niranjan# 
+oot@dbda8-VMware-Virtual-Platform:/Niranjan# git checkout -b dbda
+Switched to a new branch 'dbda'
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git branch
+* dbda
+  main
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git merge test
+merge: test - not something we can merge
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git merge dbda
+Already up to date.
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git log
+commit e8c97f7b764680e47197abeaa333c2f9c6e16cc7 (HEAD -> main, dbda)
+Author: Niranjan <niranjanbarhate12@gmail.com>
+Date:   Wed Mar 5 09:47:01 2025 +0530
+
+    updated data.txt
+
+commit 658270d6fe46c15b56e6b37804a4605d691df4a4
+Author: Niranjan <niranjanbarhate12@gmail.com>
+Date:   Wed Mar 5 09:44:18 2025 +0530
+
+    first commit
+
+commit 0d6b1b1af7a8ff2b220c07a7c84e1fb633bdbe27 (origin/main, origin/HEAD)
+Author: NiranjanMBarhate <63952199+NiranjanMBarhate@users.noreply.github.com>
+Date:   Wed Mar 5 09:37:00 2025 +0530
+
+    Initial commit
+root@dbda8-VMware-Virtual-Platform:/Niranjan# cat >> dbda
+linux
+git
+cloud
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git merge dbda
+Already up to date.
+root@dbda8-VMware-Virtual-Platform:/Niranjan# cat dbda
+linux
+git
+cloud
+root@dbda8-VMware-Virtual-Platform:/Niranjan# rm dbda
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git checkout dbda
+Switched to branch 'dbda'
+root@dbda8-VMware-Virtual-Platform:/Niranjan# cat > linux
+Command      
+git
+linux
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git merge dbda
+Already up to date.
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git log
+commit e8c97f7b764680e47197abeaa333c2f9c6e16cc7 (HEAD -> main, dbda)
+Author: Niranjan <niranjanbarhate12@gmail.com>
+Date:   Wed Mar 5 09:47:01 2025 +0530
+
+    updated data.txt
+
+commit 658270d6fe46c15b56e6b37804a4605d691df4a4
+Author: Niranjan <niranjanbarhate12@gmail.com>
+Date:   Wed Mar 5 09:44:18 2025 +0530
+
+    first commit
+
+commit 0d6b1b1af7a8ff2b220c07a7c84e1fb633bdbe27 (origin/main, origin/HEAD)
+Author: NiranjanMBarhate <63952199+NiranjanMBarhate@users.noreply.github.com>
+Date:   Wed Mar 5 09:37:00 2025 +0530
+
+    Initial commit
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git checkout dbda
+Switched to branch 'dbda'
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git ad .
+git: 'ad' is not a git command. See 'git --help'.
+
+The most similar commands are
+	add
+	am
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git add .
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git commit -m "First"
+[dbda 3b2386a] First
+ 1 file changed, 3 insertions(+)
+ create mode 100644 linux
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+root@dbda8-VMware-Virtual-Platform:/Niranjan# ls
+data.txt  README.md
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git merge dbda
+Updating e8c97f7..3b2386a
+Fast-forward
+ linux | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 linux
+root@dbda8-VMware-Virtual-Platform:/Niranjan# ls
+data.txt  linux  README.md
+root@dbda8-VMware-Virtual-Platform:/Niranjan# git log
+
+
 
