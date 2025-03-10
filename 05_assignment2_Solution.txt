@@ -1,0 +1,94 @@
+#!/bin/bash
+menu(){
+        echo -e "1. Make a file  1\n2. Display contents  2\n3. Copy the file  3\n4. Rename a file  4\n5. Delete the file  5\n6. Exit"
+}
+
+file(){
+        read -p "Enter the file name:- " file
+                if [[ -e "${file}" ]];then
+                        echo -e "ERROR : File already exist \n"
+                        menu
+                else
+                        echo -e "\n Enter the content in file \n"
+                        cat > $file
+                        echo -e "$file Created successfully\n"
+                        menu
+                fi
+}
+display(){
+        read -p "Enter the file name:- " file
+        if [[ -e $file ]];then
+                echo -e "\n"
+                cat $file
+                echo -e "\n"
+        else
+                echo -e "ERROR : File does not exist\n"
+        fi
+        menu
+}
+copy(){
+        read -p "Enter the file to copy:- " file
+        if [[ -e $file ]] && [[ -r $file ]];then
+                read -p "Enter the destination:- " des
+                if [[ -e $des ]];then
+                        echo -e "\n"
+                        cp -v $file $des
+                        echo -e "\n"
+                else
+echo -e "ERROR : Target file does not exist\n"
+                fi
+        else
+                echo -e "ERROR : File does not exist\n"
+        fi
+        menu
+}
+rename(){
+        read -p "Enter the file to rename:- " file
+        if [[ -e $file ]];then
+                read -p "Enter new name to file:- " new
+                mv $file $new
+                echo -e "$file rename successful to $new\n"
+        else
+                echo -e "ERROR : No such file available to rename\n"
+        fi
+        menu
+}
+delete(){
+        read -p "Enter the file to delete:- " file
+        if [[ -e $file ]] && [[ -w $file ]];then
+                echo -e "$file file is exist and writable\n" 
+                rm $file
+                echo -e "$file deleted successfully\n"
+        else
+                echo -e "ERROR : No such file exist\n"
+        fi
+        menu
+}
+menu
+while read -p "Enter the option:- " a
+        do case $a in
+                "1")
+                        file
+                        ;;
+                "2")
+display
+                        ;;
+                "3")
+                        copy
+                        ;;
+                "4")
+                        rename
+                        ;;
+                "5")
+                        delete
+                        ;;
+                "6")
+                        exit
+                        ;;
+                *)
+                        echo -e "Enter the valid option no. \n"         
+                        ;;
+
+        esac
+done
+
